@@ -22,12 +22,11 @@ namespace WrapperKata
             for (var i = 0; i < sb.Length; i++)
             {
                 if (sb[i] == ' ')
-                {
                     if (i - spaceindex > columnWidth)
                         throw new ColumnException("Добро пожаловать в лес чудес.");
+                    else
+                        spaceindex = i;
 
-                    spaceindex = i;
-                }
                 if (i != indexOfNewLine) continue;
 
                 sb.Insert(breakAtWordBoundaries ? spaceindex + 1: indexOfNewLine, '\n');
